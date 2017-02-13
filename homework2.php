@@ -1,3 +1,62 @@
+<style type="text/css">
+	* {
+		font-family: sans-serif;
+	}
+
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: silver;
+		}
+
+
+			span {
+				width: auto;
+				padding: 15px;
+				background-color: #dcdcdc;
+				box-sizing: border-box;
+				border-radius: 2px;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+			}
+
+
+		.container {
+			width: 800px;
+			margin: auto;
+			padding: 30px;
+			background-color: white;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+			margin-top: 20px;
+		}
+
+
+			.content {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				margin-bottom: 25px;
+			}
+
+		.aic {
+			margin-bottom: 15px;
+			margin-top: 35px;
+			border: 2px solid #5b5b5b;
+			border-radius: 2px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+		}
+
+			.author {
+				font-size: 18px;
+				color: #353435;
+				padding-left: 15px;
+			}
+
+			.comment {				
+				font-size: 14px;
+				padding-left: 15px;
+			}
+
+</style>
+
 <?php
 
 $posts = [
@@ -126,18 +185,20 @@ $posts = [
 
 
 <?php foreach($posts as $value){ ?>
-	<h1><?=$value['title']?></h1>
-	<p><?=$value['content']?></p>
-	<ul>
-		<?php foreach($value['tags'] as $tagovi){ ?>
-			<li><?=$tagovi?></li>
-		<?php } ?>
-	</ul>
-	<div>
-		<?php foreach($value['comments'] as $komentari){ ?>
-			<p><?=$komentari['author']?></p>
-			<p><?=$komentari['comment']?></p>
-		<?php } ?>
+	<div class="container">
+		<h1><?=$value['title']?></h1>
+		<p class="content"><?=$value['content']?></p>
+<!-- 		<ul> -->
+			<?php foreach($value['tags'] as $tagovi){ ?>
+				<span><?=$tagovi?></span>
+			<?php } ?>
+<!-- 		</ul> -->
+			<?php foreach($value['comments'] as $komentari){ ?>
+				<div class="aic">
+					<p class="author"><?=$komentari['author']?></p>
+					<p class="comment"><?=$komentari['comment']?></p>
+				</div>
+			<?php } ?>
 	</div>
 <?php } ?>
 	
