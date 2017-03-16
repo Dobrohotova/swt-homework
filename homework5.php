@@ -68,13 +68,14 @@ $counter = 1;
 		<th>Confirm Password</th>
 	</tr>
 	<?php foreach ($red as $val) { 
-			$zbor = explode(' ', $val)
+			$zbor = explode(' ', $val);
+			if(count($zbor) != 1){
 	?>
 		<tr>
 			<?php foreach ($zbor as $val2) { ?>
 				<td><?=$val2?></td>
 			<?php } ?>
 		</tr>
-	<?php } ?>
+	<?php }} ?>
 </table>
 
