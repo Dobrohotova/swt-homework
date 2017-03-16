@@ -35,7 +35,7 @@ if(strlen($post_name) > 0 && strlen($post_email) > 0 && strlen($post_age) > 0 &&
 
 
 
-$filename = 'register.html';
+$filename = 'register.txt';
 $filehandle = fopen($filename, 'a+');
 
 fwrite($filehandle, $post_name.' '.$vemail.' '.$post_age.' '.$vwebsite.' '.$post_password.' '.$post_confirmpassword.'; ');
@@ -45,8 +45,9 @@ rewind($filehandle);
 $read = fread($filehandle, filesize($filename));
 // echo $read;
 
-$zbor = explode(' ', $read);
 $red = explode('; ', $read);
+
+// $zbor = explode(' ', $read);
 
 
 fclose($filehandle);   
@@ -66,10 +67,12 @@ $counter = 1;
 		<th>Password</th>
 		<th>Confirm Password</th>
 	</tr>
-	<?php foreach ($red as $val) { ?>
+	<?php foreach ($red as $val) { 
+			$zbor = explode(' ', $val)
+	?>
 		<tr>
 			<?php foreach ($zbor as $val2) { ?>
-				<td><?=$val2  ?></td>
+				<td><?=$val2?></td>
 			<?php } ?>
 		</tr>
 	<?php } ?>
