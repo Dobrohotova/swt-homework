@@ -2,7 +2,7 @@
 
 
 
-print_r($_FILES);
+// print_r($_FILES);
 
 
 for ($i=0; $i < count($_FILES['m']['type']); $i++) { 
@@ -26,8 +26,23 @@ for($i = 0; $i < count($_FILES['m']['type']); $i++){
 		echo 'ERROR: File '.$name.' not uploaded!<br/>';
 	}
 }
-print_r(scandir('uploads/'));
+
+
+$dir = 'uploads/'; 
+$images = scandir($dir);
+
+
+print_r($images);
+
+foreach ($images as $value) {
+	echo "<li><img src="$dir.$value.'.jpg'"/></li>";
+}
+
+
+
 
 
 
 ?>
+
+
