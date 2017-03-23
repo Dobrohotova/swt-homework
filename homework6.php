@@ -34,9 +34,13 @@ $images = scandir($dir);
 
 print_r($images);
 
+echo '<ul>';
 foreach ($images as $value) {
-	echo "<li><img src="$dir.$value.'.jpg'"/></li>";
+	if($value != '.' && $value != '..'){
+		echo "<li><img src=\"".$dir.$value."\"/></li>";
+	}
 }
+echo '</ul>';
 
 
 
