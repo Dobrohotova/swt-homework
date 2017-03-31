@@ -2,37 +2,32 @@
 
 class File {
 	private $filename;
-	// private $filehandle;
+	private $filehandle;
 
-	public function setFilename($fn){
-		$this->filename = $fn;
-	}
-
-	// public function setFilehandle($fh){
-	// 	$this->filehandle = $fh;
-	// }
-
-	public function __construct($fn){
-		$this->setFilename($fn);
-	}
-
-	public function __destruct(){
-		echo 'Calling the D.E.S.T.R.U.C.T.O.R. !!!';
+	public function __construct($filename){
+		$this->filename = $filename;
+		$this->filehandle = fopen($filename, 'a+');
 	}
 
 	public function write($string){
-		$filehandle = fopen($this->filename, 'a+');
-		echo fwrite($filehandle, $this->$string);
-		echo rewind($filehandle);
-		echo fread($filehandle, filesize($this->filename));
-		echo fclose($filehandle);
+		fwrite($this->filehandle, $string);
+	}
+
+	public function read(){
+		rewind($this->filehandle);
+		return fread($this->filehandle, filesize($this->filename));
+	}
+
+	public function __destruct(){
+		fclose($this->filehandle);
 	}
 }
 
 $f = new File('file.txt');
-$f->write('Some text. Blah blah blah...');
+$f->write('Some text. Blah blah blah... ');
+$f->write('PHP RULZ! ');
+echo $f->read();
 
-echo '</br>';
 unset($f);
   
 
