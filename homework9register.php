@@ -7,7 +7,7 @@ $password = '';
 $db = new PDO($config, $username, $password);
 
 
-if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
+if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['age'])) {
 	$post_first_name = trim(strip_tags($_POST['first_name']));
 	$post_last_name = trim(strip_tags($_POST['last_name']));
 	$post_mail = trim(strip_tags($_POST['email']));
