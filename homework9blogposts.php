@@ -51,13 +51,15 @@ if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['publish_
 		Publish Date:<input type="date" name="publish_date"><br><br>
 		Image:<input type="file" name="image"><br><br>
 		Category:
-		<select name="category_name">
-			<option>Category 1</option>
-			<option>Category 2</option>
-			<option>Category 3</option>
-			<option>Category 4</option>
-			<option>Category 5</option>
-		</select>
+		<?php 
+			$sql2 = 'select * from categories';
+			$query2 = $db->query($sql2);
+			$categories = $query2->fetchAll(PDO::FETCH_ASSOC);
+		?>
+		<select><?php foreach ($categories as $category){ ?>
+			<option><?=$category['category_name']?></option>
+		<?php } ?>
+		</select><br><br>
 		<button type="submit">Submit</button>
 	</form>
 
