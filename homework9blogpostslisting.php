@@ -2,7 +2,7 @@
  
 	$config = 'mysql:host=127.0.0.1;dbname=homework_db';
 	$username = 'root';
-	$password = '';
+	$password = 'root';
 	$db = new PDO($config, $username, $password);
 	
 	$sql = 'select * from blogposts';
@@ -19,8 +19,8 @@
 <body>
 	<?php foreach ($blogposts as $key => $blog) { ?>
 	<ul>
-		<li><?=$blog['title']?></li>
-		<li><?=$blog['content']?></li>
+		<li><h1><?=$blog['title']?></h1></li>
+		<li><p><?=$blog['content']?></p></li>
 		<li><?=$blog['publish_date']?></li>
 		<li><?=$blog['image']?></li>
 	</ul>

@@ -3,7 +3,7 @@ session_start();
 
 $config = 'mysql:host=127.0.0.1;dbname=homework_db';
 $username = 'root';
-$password = '';
+$password = 'root';
 $db = new PDO($config, $username, $password);
 
 
