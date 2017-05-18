@@ -17,7 +17,11 @@ if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['publish_
 		
 			select categories.id, blogposts.id_category, categories.category_name
 			from categories
-			inner join blogposts on categories.id=blogposts.id_category'; 
+			where blogposts on categories.id=blogposts.id_category'; 
+
+		//select categories.id, blogposts.id_category, categories.category_name
+		//	from categories, blogposts
+		//	where categories.id = blogposts.id_category;
 		$table_query = $db->prepare($sql);
 		$table_query->bindValue(':title', $post_title);
 		$table_query->bindValue(':content', $post_content);
